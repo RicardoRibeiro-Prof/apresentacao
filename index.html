@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Páginas Simples para Negócios | Clientes pelo WhatsApp</title>
+
+  <style>
+    :root {
+      --azul: #2563eb;
+      --azul-escuro: #1e3a8a;
+      --azul-muito-escuro: #0f172a;
+      --verde: #25d366;
+      --verde-hover: #1ebe5d;
+      --preto: #111827;
+      --cinza: #6b7280;
+      --cinza-claro: #f3f4f6;
+      --branco: #ffffff;
+      --borda: #e5e7eb;
+      --amarelo: #facc15;
+      --sombra: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--preto);
+      background-color: var(--branco);
+      line-height: 1.6;
+    }
+
+    .topo {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: var(--branco);
+      min-height: 100vh;
+    }
+
+    .menu {
+      width: 90%;
+      max-width: 1120px;
+      margin: auto;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .links-menu {
+      display: flex;
+      gap: 22px;
+    }
+
+    .links-menu a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      opacity: 0.9;
+      transition: 0.3s;
+    }
+
+    .links-menu a:hover {
+      opacity: 1;
+      color: #bfdbfe;
+    }
+
+    .botao-menu {
+      background-color: var(--verde);
+      color: var(--branco);
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    .botao-menu:hover {
+      background-color: var(--verde-hover);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      width: 90%;
+      max-width: 1120px;
+      margin: auto;
+      min-height: 75vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 42px;
+      padding: 35px 0 60px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #e5e7eb;
+      font-size: 18px;
+      margin-bottom: 28px;
+      max-width: 650px;
+    }
+
+    .acoes {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .botao-principal {
+      background-color: var(--verde);
+      color: var(--branco);
+      text-decoration: none;
+      padding: 15px 24px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .botao-principal:hover {
+      background-color: var(--verde-hover);
+      transform: translateY(-2px);
+    }
+
+    .botao-secundario {
+      color: var(--branco);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .botao-secundario:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .botao-card {
+      background-color: var(--azul);
+      color: var(--branco);
+      text-decoration: none;
+      padding: 13px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      margin-top: 18px;
+    }
+
+    .botao-card:hover {
+      background-color: var(--azul-escuro);
+      transform: translateY(-2px);
+    }
+
+    .mini-info {
+      margin-top: 18px;
+      font-size: 15px;
+      color: #dbeafe;
+    }
+
+    .card-hero {
+      background-color: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: var(--sombra);
+      backdrop-filter: blur(8px);
+    }
+
+    .card-hero h2 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .item-card {
+      background-color: rgba(255, 255, 255, 0.10);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .item-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #bfdbfe;
+    }
+
+    .item-card p {
+      margin: 0;
+      font-size: 15px;
+      color: #e5e7eb;
+    }
+
+    .secao {
+      width: 90%;
+      max-width: 1120px;
+      margin: auto;
+      padding: 62px 0;
+      text-align: center;
+    }
+
+    .secao h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+      color: var(--preto);
+    }
+
+    .subtitulo {
+      color: var(--cinza);
+      max-width: 760px;
+      margin: 0 auto 36px;
+      font-size: 17px;
+    }
+
+    .faixa {
+      background-color: var(--cinza-claro);
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .conteudo-faixa {
+      width: 90%;
+      max-width: 1120px;
+      margin: auto;
+      padding: 62px 0;
+      text-align: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background-color: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: var(--sombra);
+      transition: 0.3s;
+      text-align: left;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--azul);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--azul);
+    }
+
+    .card p {
+      color: var(--cinza);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .card strong {
+      color: var(--preto);
+    }
+
+    .portfolio-card {
+      overflow: hidden;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-img {
+      height: 170px;
+      background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--branco);
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    .portfolio-conteudo {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .portfolio-conteudo strong {
+      display: block;
+      margin-top: auto;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background-color: #dbeafe;
+      color: var(--azul-escuro);
+      padding: 5px 10px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .preco {
+      font-size: 34px;
+      color: var(--azul);
+      margin: 14px 0 10px;
+      font-weight: bold;
+    }
+
+    .preco span {
+      font-size: 15px;
+      color: var(--cinza);
+      font-weight: normal;
+    }
+
+    .lista {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 24px;
+    }
+
+    .lista li {
+      color: var(--cinza);
+      font-size: 15px;
+    }
+
+    .lista li::before {
+      content: "✓ ";
+      color: var(--verde);
+      font-weight: bold;
+    }
+
+    .pacote-destaque {
+      border: 2px solid var(--azul);
+      position: relative;
+    }
+
+    .selo {
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      background-color: var(--amarelo);
+      color: #713f12;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 13px;
+    }
+
+    .processo {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      text-align: center;
+    }
+
+    .passo {
+      background-color: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: 24px 18px;
+      box-shadow: var(--sombra);
+    }
+
+    .numero {
+      width: 42px;
+      height: 42px;
+      background-color: var(--azul);
+      color: var(--branco);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .passo h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--preto);
+    }
+
+    .passo p {
+      font-size: 14px;
+      color: var(--cinza);
+    }
+
+    .aviso {
+      background-color: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      padding: 18px;
+      border-radius: 14px;
+      max-width: 850px;
+      margin: 34px auto 0;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .chamada-final {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul));
+      color: var(--branco);
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .chamada-final h2 {
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+
+    .chamada-final p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: #e5e7eb;
+      font-size: 18px;
+    }
+
+    footer {
+      background-color: var(--azul-muito-escuro);
+      color: #d1d5db;
+      text-align: center;
+      padding: 22px;
+      font-size: 14px;
+    }
+
+    .botao-flutuante {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background-color: var(--verde);
+      color: var(--branco);
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
+      z-index: 999;
+      transition: 0.3s;
+    }
+
+    .botao-flutuante:hover {
+      background-color: var(--verde-hover);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 1000px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .acoes {
+        justify-content: center;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .processo {
+        grid-template-columns: 1fr;
+      }
+
+      .links-menu {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .card-hero {
+        padding: 24px;
+      }
+
+      .secao,
+      .conteudo-faixa {
+        padding: 48px 0;
+      }
+
+      .secao h2,
+      .conteudo-faixa h2 {
+        font-size: 28px;
+      }
+
+      .chamada-final h2 {
+        font-size: 30px;
+      }
+
+      .botao-menu,
+      .botao-principal,
+      .botao-secundario,
+      .botao-card {
+        width: 100%;
+        max-width: 330px;
+        text-align: center;
+      }
+
+      .botao-flutuante {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        text-align: center;
+        padding: 14px;
+      }
+
+      footer {
+        padding-bottom: 75px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topo" id="inicio">
+    <nav class="menu">
+      <div class="logo">Ricardo Páginas Digitais</div>
+
+      <div class="links-menu">
+        <a href="#portfolio">Portfólio</a>
+        <a href="#pacotes">Pacotes</a>
+        <a href="#processo">Processo</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <a 
+        href="https://wa.me/5589999999999?text=Ol%C3%A1%21%20Quero%20uma%20p%C3%A1gina%20simples%20para%20meu%20neg%C3%B3cio%20receber%20clientes%20pelo%20WhatsApp."
+        target="_blank"
+        rel="noopener"
+        class="botao-menu">
+        Pedir orçamento
+      </a>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <span class="tag">Páginas simples para negócios locais</span>
+
+        <h1>Crio páginas para seu negócio receber clientes pelo WhatsApp</h1>
+
+        <p>
+          Páginas modernas, diretas e responsivas para barbearias, lanchonetes,
+          lojas, profissionais autônomos e pequenos negócios que querem divulgar
+          seus serviços e facilitar o contato com clientes.
+        </p>
+
+        <div class="acoes">
+          <a 
+            href="https://wa.me/5589999999999?text=Ol%C3%A1%21%20Quero%20uma%20p%C3%A1gina%20simples%20para%20meu%20neg%C3%B3cio%20receber%20clientes%20pelo%20WhatsApp."
+            target="_blank"
+            rel="noopener"
+            class="botao-principal">
+            Quero uma página para meu negócio
+          </a>
+
+          <a href="#portfolio" class="botao-secundario">
+            Ver modelos prontos
+          </a>
+        </div>
+
+        <p class="mini-info">
+          Ideal para quem precisa aparecer melhor na internet sem criar um sistema complicado.
+        </p>
+      </div>
+
+      <div class="card-hero">
+        <h2>O que sua página pode ter?</h2>
+
+        <div class="item-card">
+          <strong>Botão direto para WhatsApp</strong>
+          <p>O visitante chama você com apenas um clique.</p>
+        </div>
+
+        <div class="item-card">
+          <strong>Textos claros e comerciais</strong>
+          <p>Explicação simples do que você vende e por que o cliente deve chamar.</p>
+        </div>
+
+        <div class="item-card">
+          <strong>Visual profissional no celular</strong>
+          <p>Layout bonito, limpo e adaptado para telas pequenas.</p>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+
+    <section class="secao" id="portfolio">
+      <h2>Modelos que posso criar para você</h2>
+
+      <p class="subtitulo">
+        Clique em qualquer modelo abaixo para abrir a página de exemplo em uma nova aba.
+      </p>
+
+      <div class="grid-3">
+
+        <div class="card portfolio-card">
+          <div class="portfolio-img">✂</div>
+
+          <div class="portfolio-conteudo">
+            <span class="etiqueta">Modelo para serviços</span>
+            <h3>Barbearia</h3>
+            <p>
+              Página com serviços, preços, fotos, horários, localização e botão para agendamento pelo WhatsApp.
+            </p>
+            <strong>Ideal para: barbearias, salões, estética e atendimentos locais.</strong>
+
+            <a 
+              href="https://ricardoribeiro-prof.github.io/barbearia"
+              target="_blank"
+              rel="noopener"
+              class="botao-card">
+              Abrir modelo de barbearia
+            </a>
+          </div>
+        </div>
+
+        <div class="card portfolio-card">
+          <div class="portfolio-img">🍔</div>
+
+          <div class="portfolio-conteudo">
+            <span class="etiqueta">Modelo para pedidos</span>
+            <h3>Cardápio digital</h3>
+            <p>
+              Cardápio com fotos, categorias, preços, carrinho e envio do pedido direto para o WhatsApp.
+            </p>
+            <strong>Ideal para: lanchonetes, restaurantes, açaí, marmitarias e delivery.</strong>
+
+            <a 
+              href="https://ricardoribeiro-prof.github.io/cardapio/"
+              target="_blank"
+              rel="noopener"
+              class="botao-card">
+              Abrir modelo de cardápio
+            </a>
+          </div>
+        </div>
+
+        <div class="card portfolio-card">
+          <div class="portfolio-img">💼</div>
+
+          <div class="portfolio-conteudo">
+            <span class="etiqueta">Modelo institucional</span>
+            <h3>Página de apresentação</h3>
+            <p>
+              Página para apresentar quem você é, seus serviços, diferenciais, processo e contato.
+            </p>
+            <strong>Ideal para: autônomos, freelancers, professores e pequenas empresas.</strong>
+
+            <a 
+              href="apresentacao.html"
+              target="_blank"
+              rel="noopener"
+              class="botao-card">
+              Abrir modelo de apresentação
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="faixa" id="pacotes">
+      <div class="conteudo-faixa">
+        <h2>Pacotes com preços iniciais</h2>
+
+        <p class="subtitulo">
+          Os valores ajudam o cliente a decidir mais rápido. O preço final pode variar conforme a quantidade de seções, fotos e ajustes.
+        </p>
+
+        <div class="grid-3">
+
+          <div class="card">
+            <h3>Página Básica</h3>
+
+            <div class="preco">R$ 149 <span>a partir de</span></div>
+
+            <p>
+              Para quem precisa de uma presença simples e profissional na internet.
+            </p>
+
+            <ul class="lista">
+              <li>Uma página simples</li>
+              <li>Botão para WhatsApp</li>
+              <li>Seção de serviços</li>
+              <li>Design responsivo</li>
+              <li>Entrega em link para divulgação</li>
+            </ul>
+
+            <a 
+              href="https://wa.me/5589999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20P%C3%A1gina%20B%C3%A1sica."
+              target="_blank"
+              rel="noopener"
+              class="botao-principal">
+              Quero esse pacote
+            </a>
+          </div>
+
+          <div class="card pacote-destaque">
+            <span class="selo">Mais indicado</span>
+
+            <h3>Página Profissional</h3>
+
+            <div class="preco">R$ 249 <span>a partir de</span></div>
+
+            <p>
+              Para negócios que querem se apresentar melhor e gerar mais contatos.
+            </p>
+
+            <ul class="lista">
+              <li>Tudo do pacote básico</li>
+              <li>Textos mais persuasivos</li>
+              <li>Galeria de fotos</li>
+              <li>Localização ou mapa</li>
+              <li>Seção de diferenciais</li>
+              <li>Chamada final para WhatsApp</li>
+            </ul>
+
+            <a 
+              href="https://wa.me/5589999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20P%C3%A1gina%20Profissional."
+              target="_blank"
+              rel="noopener"
+              class="botao-principal">
+              Quero esse pacote
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>Cardápio Digital</h3>
+
+            <div class="preco">R$ 349 <span>a partir de</span></div>
+
+            <p>
+              Para negócios que vendem comida e querem receber pedidos pelo WhatsApp.
+            </p>
+
+            <ul class="lista">
+              <li>Produtos com fotos</li>
+              <li>Categorias do cardápio</li>
+              <li>Preços e descrições</li>
+              <li>Carrinho de pedido</li>
+              <li>Envio automático para WhatsApp</li>
+              <li>Informações de entrega</li>
+            </ul>
+
+            <a 
+              href="https://wa.me/5589999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20um%20Card%C3%A1pio%20Digital%20com%20pedido%20pelo%20WhatsApp."
+              target="_blank"
+              rel="noopener"
+              class="botao-principal">
+              Quero esse pacote
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="processo">
+      <h2>Como funciona o processo</h2>
+
+      <p class="subtitulo">
+        O processo é simples para o cliente. Você envia as informações, eu organizo tudo e entrego a página pronta para divulgação.
+      </p>
+
+      <div class="processo">
+        <div class="passo">
+          <div class="numero">1</div>
+          <h3>Você envia as informações</h3>
+          <p>
+            Nome do negócio, serviços, preços, WhatsApp, endereço, horários e fotos.
+          </p>
+        </div>
+
+        <div class="passo">
+          <div class="numero">2</div>
+          <h3>Eu organizo textos e imagens</h3>
+          <p>
+            Ajusto as informações para ficarem claras, profissionais e comerciais.
+          </p>
+        </div>
+
+        <div class="passo">
+          <div class="numero">3</div>
+          <h3>Crio a página</h3>
+          <p>
+            Monto o layout com foco em celular, boa aparência e botão de WhatsApp.
+          </p>
+        </div>
+
+        <div class="passo">
+          <div class="numero">4</div>
+          <h3>Faço os ajustes</h3>
+          <p>
+            Você revisa e solicita pequenas correções antes da entrega final.
+          </p>
+        </div>
+
+        <div class="passo">
+          <div class="numero">5</div>
+          <h3>Entrego o link pronto</h3>
+          <p>
+            A página fica pronta para divulgar no Instagram, WhatsApp e cartão digital.
+          </p>
+        </div>
+      </div>
+
+      <div class="aviso">
+        <strong>Observação:</strong> depoimentos reais serão adicionados somente quando houver clientes atendidos.
+        Até lá, a página não usa avaliações fictícias.
+      </div>
+    </section>
+
+    <section class="faixa">
+      <div class="conteudo-faixa">
+        <h2>Para quem esse serviço é ideal?</h2>
+
+        <p class="subtitulo">
+          Para pequenos negócios que precisam de uma página simples, bonita e objetiva para transformar visitantes em conversas pelo WhatsApp.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Negócios locais</h3>
+            <p>
+              Barbearias, salões, clínicas, oficinas, lojas, papelarias, academias e comércios de bairro.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Delivery e alimentação</h3>
+            <p>
+              Lanchonetes, restaurantes, açaí, pizzarias, marmitarias e vendedores de comida.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Profissionais autônomos</h3>
+            <p>
+              Professores, técnicos, consultores, prestadores de serviço e freelancers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chamada-final" id="contato">
+      <h2>Quer uma página simples para receber clientes pelo WhatsApp?</h2>
+
+      <p>
+        Clique no botão abaixo e me diga qual é o seu tipo de negócio. Eu te ajudo a escolher
+        o melhor modelo e explico o que preciso para começar.
+      </p>
+
+      <a 
+        href="https://wa.me/5589999999999?text=Ol%C3%A1%21%20Quero%20uma%20p%C3%A1gina%20simples%20para%20meu%20neg%C3%B3cio.%20Pode%20me%20explicar%20como%20funciona%3F"
+        target="_blank"
+        rel="noopener"
+        class="botao-principal">
+        Chamar no WhatsApp agora
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Ricardo Páginas Digitais — Páginas simples para negócios locais</p>
+  </footer>
+
+  <a 
+    href="https://wa.me/5589999999999?text=Ol%C3%A1%21%20Quero%20uma%20p%C3%A1gina%20simples%20para%20meu%20neg%C3%B3cio%20receber%20clientes%20pelo%20WhatsApp."
+    target="_blank"
+    rel="noopener"
+    class="botao-flutuante">
+    WhatsApp
+  </a>
+
+</body>
+</html>
