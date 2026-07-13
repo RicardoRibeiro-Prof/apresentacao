@@ -1,0 +1,68 @@
+name: Corrigir logo do site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corrigir:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Incorporar logo no HTML
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64
+          import re
+
+          index = Path("index.html")
+          logo = Path("logo.jpg")
+
+          html = index.read_text(encoding="utf-8")
+          encoded = base64.b64encode(logo.read_bytes()).decode("ascii")
+          data_uri = f"data:image/jpeg;base64,{encoded}"
+
+          # Substitui todas as imagens da marca por uma cópia incorporada no HTML.
+          html = re.sub(
+              r'<img\s+src="[^"]*logo[^\"]*\.jpg[^\"]*"\s+alt="Logo ativadigitalon"\s*/>',
+              f'<img src="{data_uri}" alt="Logo ativadigitalon" />',
+              html,
+          )
+
+          # Corrige também versões com URL direta do GitHub.
+          html = re.sub(
+              r'<img\s+src="https://raw\.githubusercontent\.com/[^"]+"\s+alt="Logo ativadigitalon"\s*/>',
+              f'<img src="{data_uri}" alt="Logo ativadigitalon" />',
+              html,
+          )
+
+          # Mantém a seção de planos removida.
+          html = re.sub(r'\s*<a href="#planos">Planos</a>', '', html)
+          html = re.sub(
+              r'\n\s*<section class="section section-cream" id="planos">.*?</section>',
+              '',
+              html,
+              flags=re.S,
+          )
+
+          index.write_text(html, encoding="utf-8")
+
+      - name: Publicar correção
+        run: |
+          if git diff --quiet; then
+            echo "Nenhuma alteração necessária."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Corrige exibição da logo no site"
+          git push
