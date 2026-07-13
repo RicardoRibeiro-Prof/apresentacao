@@ -189,19 +189,65 @@
       border:1px solid rgba(255,255,255,.07);
     }
     .browser-body {
-      min-height:470px; padding:28px;
+      min-height:470px; padding:24px;
       background:
         radial-gradient(circle at top right,rgba(255,176,0,.18),transparent 34%),
         linear-gradient(160deg,#121722,#08090d);
     }
-    .mock-label { color:#ffcf68; text-transform:uppercase; font-size:.73rem; font-weight:900; letter-spacing:.1em; }
-    .mock-title { font-size:2.15rem; font-weight:950; letter-spacing:-.06em; line-height:1.02; max-width:390px; margin-top:13px; }
-    .mock-text { color:var(--muted); margin-top:15px; max-width:390px; }
-    .mock-buttons { display:flex; gap:10px; margin-top:22px; }
-    .mock-btn { height:39px; border-radius:999px; flex:1; background:linear-gradient(135deg,var(--yellow),var(--orange)); }
-    .mock-btn.outline { background:transparent; border:1px solid rgba(255,255,255,.14); }
-    .mock-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:28px; }
-    .mock-grid div { height:92px; border-radius:16px; background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.075); }
+    .mock-layout {
+      display:grid; grid-template-columns:.92fr 1.08fr; gap:20px; align-items:center;
+    }
+    .mock-copy { min-width:0; }
+    .mock-label {
+      color:#ffcf68; text-transform:uppercase; font-size:.7rem;
+      font-weight:900; letter-spacing:.1em;
+    }
+    .mock-title {
+      font-size:1.85rem; font-weight:950; letter-spacing:-.055em;
+      line-height:1.04; margin-top:12px;
+    }
+    .mock-text { color:var(--muted); margin-top:14px; font-size:.92rem; }
+    .mock-buttons { display:flex; gap:9px; margin-top:20px; }
+    .mock-btn {
+      min-height:38px; border-radius:999px; flex:1; padding:0 14px;
+      display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(135deg,var(--yellow),var(--orange));
+      color:#171000; font-size:.72rem; font-weight:950;
+    }
+    .mock-btn.outline {
+      background:transparent; border:1px solid rgba(255,255,255,.16);
+      color:rgba(255,255,255,.82);
+    }
+    .mock-visual {
+      position:relative; min-height:310px; border-radius:22px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.11);
+      background:linear-gradient(145deg,#ffbd32,#ff7a00 58%,#10131a 58%);
+      box-shadow:0 24px 60px rgba(0,0,0,.28);
+    }
+    .mock-visual svg { width:100%; height:100%; min-height:310px; display:block; }
+    .mock-visual-badge {
+      position:absolute; top:13px; right:13px; z-index:2;
+      padding:7px 10px; border-radius:999px;
+      background:rgba(5,6,8,.76); border:1px solid rgba(255,255,255,.13);
+      color:#fff3ce; font-size:.62rem; font-weight:900; letter-spacing:.06em;
+      text-transform:uppercase; backdrop-filter:blur(10px);
+    }
+    .mock-stats {
+      grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr);
+      gap:10px; margin-top:3px;
+    }
+    .mock-stat {
+      min-height:72px; padding:12px; border-radius:15px;
+      display:flex; align-items:center; gap:10px;
+      background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.08);
+    }
+    .mock-stat-icon {
+      width:34px; height:34px; flex:0 0 34px; border-radius:11px;
+      display:grid; place-items:center; background:rgba(255,176,0,.13);
+      color:#ffd77d; font-weight:950;
+    }
+    .mock-stat strong { display:block; font-size:.78rem; line-height:1.15; }
+    .mock-stat small { display:block; color:var(--muted); font-size:.66rem; margin-top:3px; }
 
     .benefit-strip { border-block:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.025); }
     .benefit-grid { min-height:92px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-items:center; }
@@ -219,97 +265,107 @@
     }
     .problem-card p { color:var(--dark-soft); margin-top:6px; }
 
-    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:23px; }
-    .service { padding:30px; display:flex; flex-direction:column; min-height:330px; }
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .service { padding:30px; min-height:100%; }
     .service-number {
-      width:56px; height:56px; border-radius:18px; display:grid; place-items:center;
-      background:rgba(255,176,0,.13); color:#ffe2a0; font-weight:950; margin-bottom:21px;
+      width:58px; height:58px; border-radius:18px; display:grid; place-items:center;
+      background:rgba(255,176,0,.13); border:1px solid rgba(255,176,0,.18);
+      color:#ffe0a0; font-weight:950; margin-bottom:20px;
     }
-    .service p { color:var(--muted); margin-top:12px; }
-    .service ul { display:grid; gap:10px; margin-top:22px; }
+    .service p { color:var(--muted); margin-top:11px; }
+    .service ul { display:grid; gap:10px; margin-top:20px; }
     .service li { display:flex; gap:9px; color:rgba(247,244,238,.78); font-size:.94rem; }
-    .service li::before { content:"✓"; color:#ffc64a; font-weight:950; }
+    .service li::before { content:"✓"; color:#ffcf68; font-weight:950; }
 
-    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:23px; }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
     .project { overflow:hidden; display:flex; flex-direction:column; }
     .project-preview {
-      min-height:220px; padding:20px; color:#fff; position:relative; overflow:hidden;
+      min-height:240px; position:relative; overflow:hidden; padding:18px;
       display:flex; flex-direction:column; justify-content:space-between;
-    }
-    .project-preview::before {
-      content:""; position:absolute; inset:0;
-      background:radial-gradient(circle at top right,rgba(255,176,0,.24),transparent 37%);
+      color:#fff;
     }
     .project-preview::after {
-      content:""; position:absolute; width:210px; height:210px; border-radius:50%;
-      right:-90px; bottom:-100px; border:1px solid rgba(255,176,0,.24);
-      box-shadow:0 0 0 34px rgba(255,176,0,.035);
+      content:""; position:absolute; width:210px; height:210px; right:-80px; bottom:-85px;
+      border-radius:50%; border:1px solid rgba(255,255,255,.15);
+      box-shadow:0 0 0 35px rgba(255,255,255,.025);
     }
-    .law1 { background:linear-gradient(135deg,#17130f,#050506); }
-    .law2 { background:linear-gradient(135deg,#101622,#050506); }
-    .acc1 { background:linear-gradient(135deg,#0c1a15,#050506); }
-    .acc2 { background:linear-gradient(135deg,#0c1720,#050506); }
-    .eng1 { background:linear-gradient(135deg,#1a130b,#050506); }
-    .eng2 { background:linear-gradient(135deg,#17101d,#050506); }
-    .mini-browser { position:relative; z-index:2; width:150px; height:38px; border-radius:14px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10); display:flex; align-items:center; gap:6px; padding:0 12px; }
-    .mini-browser span { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.34); }
+    .law1 { background:radial-gradient(circle at top left,rgba(207,159,74,.30),transparent 34%),linear-gradient(135deg,#17130f,#060607); }
+    .law2 { background:radial-gradient(circle at top right,rgba(90,120,190,.28),transparent 34%),linear-gradient(135deg,#10141c,#050506); }
+    .acc1 { background:radial-gradient(circle at top left,rgba(39,151,116,.28),transparent 34%),linear-gradient(135deg,#0d1916,#050506); }
+    .acc2 { background:radial-gradient(circle at top right,rgba(52,130,188,.28),transparent 34%),linear-gradient(135deg,#0d151d,#050506); }
+    .eng1 { background:radial-gradient(circle at top left,rgba(219,137,49,.30),transparent 34%),linear-gradient(135deg,#1a140d,#050506); }
+    .eng2 { background:radial-gradient(circle at top right,rgba(159,113,210,.28),transparent 34%),linear-gradient(135deg,#17101d,#050506); }
+    .mini-browser {
+      position:relative; z-index:2; width:170px; height:42px; border-radius:15px;
+      display:flex; align-items:center; gap:6px; padding:0 13px;
+      background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10);
+    }
+    .mini-browser span { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.36); }
     .project-preview-content { position:relative; z-index:2; }
-    .project-preview small { color:#ffd578; text-transform:uppercase; font-size:.72rem; font-weight:900; letter-spacing:.09em; }
-    .project-preview h3 { font-size:1.85rem; margin-top:7px; }
+    .project-preview small { color:#ffd878; text-transform:uppercase; font-size:.72rem; font-weight:900; letter-spacing:.08em; }
+    .project-preview h3 { font-size:1.85rem; margin-top:8px; }
     .project-body { padding:25px; display:flex; flex-direction:column; flex:1; }
-    .tag { width:max-content; padding:6px 10px; border-radius:999px; background:rgba(255,176,0,.13); color:#9e6100; font-size:.75rem; font-weight:900; margin-bottom:13px; }
-    .project-body p { color:var(--dark-soft); margin-top:9px; }
-    .project-body .btn { width:100%; margin-top:22px; }
+    .tag { width:fit-content; padding:7px 10px; border-radius:999px; background:rgba(255,176,0,.13); color:#9f6200; font-size:.75rem; font-weight:900; margin-bottom:14px; }
+    .project-body p { color:var(--dark-soft); margin:9px 0 23px; }
+    .project-body .btn { width:100%; margin-top:auto; }
 
     .features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
     .feature { padding:28px; }
-    .feature .icon { color:#ffe1a0; background:rgba(255,176,0,.12); margin-bottom:19px; }
+    .feature .icon { color:#ffe0a0; }
+    .feature h3 { margin-top:18px; }
     .feature p { color:var(--muted); margin-top:10px; }
 
     .process { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-    .step { padding:28px; min-height:245px; }
+    .step { padding:28px; }
     .step-number {
-      width:70px; height:70px; border-radius:50%; display:grid; place-items:center;
-      background:linear-gradient(135deg,#ffd55e,var(--yellow),var(--orange));
-      color:#170f00; font-weight:950; font-size:1.25rem; margin-bottom:21px;
-      box-shadow:0 16px 36px rgba(255,146,0,.22);
+      width:64px; height:64px; border-radius:50%; display:grid; place-items:center;
+      background:linear-gradient(135deg,#ffd45e,var(--yellow),var(--orange)); color:#171000;
+      font-weight:950; font-size:1.18rem; margin-bottom:20px;
+      box-shadow:0 16px 38px rgba(255,146,0,.21);
     }
-    .step p { color:var(--muted); margin-top:11px; }
+    .step p { color:var(--dark-soft); margin-top:10px; }
 
     .cta-box {
-      padding:68px; border-radius:38px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center;
+      padding:65px; border-radius:38px; display:grid; grid-template-columns:1fr auto;
+      align-items:center; gap:32px; border:1px solid rgba(255,255,255,.12); box-shadow:var(--shadow);
       background:
-        radial-gradient(circle at top left,rgba(255,176,0,.20),transparent 35%),
-        radial-gradient(circle at bottom right,rgba(255,146,0,.16),transparent 36%),
-        linear-gradient(135deg,#151a24,#060607);
-      border:1px solid rgba(255,255,255,.12); box-shadow:var(--shadow);
+        radial-gradient(circle at top left,rgba(255,176,0,.19),transparent 34%),
+        radial-gradient(circle at bottom right,rgba(255,146,0,.17),transparent 35%),
+        linear-gradient(135deg,#131721,#060607);
     }
-    .cta-box p { color:var(--muted); margin-top:14px; max-width:720px; }
+    .cta-box p { color:var(--muted); margin-top:15px; max-width:740px; }
 
-    .faq { max-width:900px; margin:auto; display:grid; gap:13px; }
+    .faq { display:grid; gap:13px; max-width:900px; margin:auto; }
     .faq-item { overflow:hidden; }
-    .faq-question { width:100%; min-height:70px; padding:19px 23px; display:flex; align-items:center; justify-content:space-between; gap:16px; text-align:left; color:var(--dark); font-weight:900; }
-    .faq-plus { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:rgba(255,176,0,.14); color:#a66700; transition:.2s; flex:0 0 auto; }
+    .faq-question {
+      width:100%; min-height:70px; padding:19px 23px; display:flex;
+      align-items:center; justify-content:space-between; gap:17px; text-align:left;
+      color:var(--dark); font-weight:900;
+    }
+    .faq-plus {
+      width:33px; height:33px; flex:0 0 33px; border-radius:50%; display:grid; place-items:center;
+      color:#9f6200; background:rgba(255,176,0,.14); transition:.2s;
+    }
     .faq-answer { max-height:0; overflow:hidden; transition:max-height .3s ease; }
     .faq-answer p { padding:0 23px 21px; color:var(--dark-soft); }
     .faq-item.active .faq-plus { transform:rotate(45deg); }
 
-    .footer { padding:60px 0 26px; background:#030304; border-top:1px solid rgba(255,255,255,.08); }
-    .footer-grid { display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:34px; margin-bottom:34px; }
-    .footer-brand { display:flex; align-items:center; gap:13px; }
-    .footer-logo { width:56px; height:56px; border-radius:50%; overflow:hidden; border:2px solid rgba(255,176,0,.36); flex:0 0 56px; }
-    .footer-logo img { width:100%; height:100%; object-fit:cover; }
+    .footer { padding:58px 0 26px; background:#030304; border-top:1px solid rgba(255,255,255,.08); }
+    .footer-grid { display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:35px; margin-bottom:34px; }
+    .footer-brand { display:flex; gap:13px; align-items:center; }
+    .footer-brand .brand-logo { width:55px; height:55px; flex-basis:55px; }
     .footer p,.footer a,.footer span { color:var(--muted); }
+    .footer h4 { margin-bottom:13px; }
     .footer-links { display:grid; gap:9px; }
-    .copyright { padding-top:22px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-size:.88rem; color:#7e8491; }
+    .footer a:hover { color:#ffe1a0; }
+    .copyright { padding-top:22px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-size:.88rem; }
 
     .whatsapp {
-      position:fixed; right:20px; bottom:20px; z-index:999;
-      width:60px; height:60px; border-radius:50%; display:grid; place-items:center;
-      background:var(--green); color:#fff; font-size:1.45rem; font-weight:950;
-      box-shadow:0 18px 42px rgba(25,180,90,.38); transition:.2s;
+      position:fixed; right:20px; bottom:20px; z-index:900; width:62px; height:62px;
+      border-radius:50%; display:grid; place-items:center; background:var(--green); color:#fff;
+      font-size:1.45rem; box-shadow:0 18px 42px rgba(25,180,90,.34); transition:.2s;
     }
-    .whatsapp:hover { transform:translateY(-4px) scale(1.04); }
+    .whatsapp:hover { transform:translateY(-4px) scale(1.03); }
 
     @media (max-width:1080px) {
       .hero-layout,.problem-layout,.cta-box { grid-template-columns:1fr; }
@@ -339,10 +395,11 @@
       h1 { font-size:clamp(2.5rem,13vw,4rem); }
       .brand-text small { display:none; }
       .brand-logo { width:46px; height:46px; flex-basis:46px; }
-      .browser-body { min-height:390px; padding:21px; }
-      .mock-title { font-size:1.75rem; }
-      .mock-grid { grid-template-columns:1fr; }
-      .mock-grid div { height:55px; }
+      .browser-body { min-height:390px; padding:18px; }
+      .mock-layout { grid-template-columns:1fr; }
+      .mock-title { font-size:1.65rem; }
+      .mock-visual,.mock-visual svg { min-height:250px; }
+      .mock-stats { grid-template-columns:1fr; }
       .problem-card { grid-template-columns:1fr; }
       .project-preview { min-height:210px; }
       .whatsapp { width:56px; height:56px; right:15px; bottom:15px; }
@@ -354,14 +411,14 @@
   <header class="header">
     <div class="container header-inner">
       <a href="#inicio" class="brand" aria-label="Ativa Digital ON">
-        <span class="brand-logo"><img src="logo.jpg?v=20260713-2" alt="Logo Ativa Digital ON"></span>
+        <span class="brand-logo"><img src="logo.jpg" alt="Logo Ativa Digital ON"></span>
         <span class="brand-text">
           <strong>Ativa Digital ON</strong>
           <small>Páginas profissionais para negócios</small>
         </span>
       </a>
 
-      <nav class="nav" id="navMenu">
+      <nav class="nav" id="navMenu" aria-label="Menu principal">
         <a href="#inicio">Início</a>
         <a href="#paginas">Tipos de páginas</a>
         <a href="#portfolio">Projetos</a>
@@ -372,7 +429,7 @@
 
       <div class="header-actions">
         <a href="#" class="btn btn-primary js-whatsapp">Solicitar orçamento</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -384,18 +441,14 @@
       <div class="container hero-layout">
         <div class="hero-copy reveal">
           <div class="hero-badge">
-            <img src="logo.jpg?v=20260713-2" alt="">
-            <span>Criação de páginas para empresas e profissionais</span>
+            <img src="logo.jpg" alt="Logo Ativa Digital ON">
+            <span>Criação de páginas profissionais</span>
           </div>
 
-          <h1>
-            Páginas profissionais para apresentar seu negócio e
-            <span>gerar mais contatos.</span>
-          </h1>
-
+          <h1>Seu negócio precisa de uma página que <span>explique, valorize e gere contatos.</span></h1>
           <p>
-            A Ativa Digital ON cria páginas de vendas, páginas de apresentação e sites institucionais simples,
-            com visual profissional, navegação clara e contato direto pelo WhatsApp.
+            Desenvolvo páginas de apresentação, páginas de vendas e sites institucionais simples para empresas
+            e profissionais que desejam transmitir confiança e apresentar seus serviços de forma clara.
           </p>
 
           <div class="hero-actions">
@@ -417,11 +470,95 @@
               <div class="browser-url"></div>
             </div>
             <div class="browser-body">
-              <span class="mock-label">Sua empresa no digital</span>
-              <div class="mock-title">Uma página clara, bonita e pronta para apresentar seu negócio.</div>
-              <p class="mock-text">Serviços, diferenciais, projetos, localização e um caminho fácil para o cliente falar com você.</p>
-              <div class="mock-buttons"><div class="mock-btn"></div><div class="mock-btn outline"></div></div>
-              <div class="mock-grid"><div></div><div></div><div></div></div>
+              <div class="mock-layout">
+                <div class="mock-copy">
+                  <span class="mock-label">Sua empresa no digital</span>
+                  <div class="mock-title">Uma página profissional que valoriza o seu negócio.</div>
+                  <p class="mock-text">Apresente seus serviços com clareza, transmita confiança e facilite o contato pelo WhatsApp.</p>
+                  <div class="mock-buttons">
+                    <span class="mock-btn">Solicitar orçamento</span>
+                    <span class="mock-btn outline">Conhecer serviços</span>
+                  </div>
+                </div>
+
+                <div class="mock-visual" aria-label="Ilustração de uma equipe analisando uma página profissional">
+                  <span class="mock-visual-badge">Projeto profissional</span>
+                  <svg viewBox="0 0 520 360" role="img" aria-labelledby="mockVisualTitle mockVisualDesc" xmlns="http://www.w3.org/2000/svg">
+                    <title id="mockVisualTitle">Equipe analisando uma página profissional em um notebook</title>
+                    <desc id="mockVisualDesc">Ilustração em tons de laranja e preto com três profissionais reunidos diante de um notebook que exibe um site.</desc>
+                    <defs>
+                      <linearGradient id="bgVisual" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#ffd45e"/>
+                        <stop offset=".54" stop-color="#ff9200"/>
+                        <stop offset="1" stop-color="#ff6b00"/>
+                      </linearGradient>
+                      <linearGradient id="screenVisual" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#202633"/>
+                        <stop offset="1" stop-color="#090b10"/>
+                      </linearGradient>
+                      <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+                        <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#000" flood-opacity=".28"/>
+                      </filter>
+                    </defs>
+
+                    <rect width="520" height="360" rx="24" fill="url(#bgVisual)"/>
+                    <circle cx="438" cy="65" r="92" fill="#fff" opacity=".12"/>
+                    <circle cx="70" cy="52" r="54" fill="#fff" opacity=".09"/>
+                    <path d="M0 264C108 228 176 260 252 246C352 228 421 201 520 216V360H0Z" fill="#0b0d12" opacity=".96"/>
+
+                    <circle cx="102" cy="126" r="37" fill="#9c542d"/>
+                    <path d="M67 125C67 77 136 72 143 120C126 106 99 105 67 125Z" fill="#17120f"/>
+                    <path d="M53 270C57 191 75 163 105 163C139 163 155 194 160 270Z" fill="#1a1e27"/>
+                    <path d="M133 189C165 190 186 206 207 234" stroke="#9c542d" stroke-width="20" stroke-linecap="round"/>
+
+                    <circle cx="259" cy="90" r="35" fill="#c87a49"/>
+                    <path d="M225 89C225 50 293 45 296 92C276 78 246 77 225 89Z" fill="#312118"/>
+                    <path d="M204 216C209 144 224 126 258 126C294 126 313 153 317 216Z" fill="#fff5df"/>
+                    <path d="M232 161L202 220" stroke="#c87a49" stroke-width="19" stroke-linecap="round"/>
+                    <path d="M286 161L318 220" stroke="#c87a49" stroke-width="19" stroke-linecap="round"/>
+
+                    <circle cx="424" cy="132" r="36" fill="#6f3c27"/>
+                    <path d="M390 132C390 86 456 78 462 126C442 112 415 111 390 132Z" fill="#0f1014"/>
+                    <path d="M367 270C370 192 391 169 424 169C458 169 477 197 483 270Z" fill="#242a36"/>
+                    <path d="M389 195C355 198 337 218 320 239" stroke="#6f3c27" stroke-width="20" stroke-linecap="round"/>
+
+                    <g filter="url(#softShadow)">
+                      <rect x="154" y="137" width="220" height="139" rx="12" fill="#090b10"/>
+                      <rect x="166" y="149" width="196" height="112" rx="7" fill="url(#screenVisual)"/>
+                      <rect x="177" y="160" width="174" height="12" rx="6" fill="#313846"/>
+                      <circle cx="186" cy="166" r="3" fill="#ff9200"/>
+                      <circle cx="196" cy="166" r="3" fill="#ffd45e"/>
+                      <rect x="178" y="183" width="88" height="11" rx="5.5" fill="#ffd45e"/>
+                      <rect x="178" y="202" width="68" height="6" rx="3" fill="#79808d"/>
+                      <rect x="178" y="214" width="82" height="6" rx="3" fill="#555c68"/>
+                      <rect x="278" y="182" width="62" height="55" rx="8" fill="#ff9200" opacity=".88"/>
+                      <circle cx="309" cy="199" r="10" fill="#fff0cd" opacity=".92"/>
+                      <path d="M290 226C296 211 322 211 329 226Z" fill="#fff0cd" opacity=".92"/>
+                      <rect x="178" y="238" width="65" height="12" rx="6" fill="#ff9200"/>
+                      <path d="M137 275H391L371 294H157Z" fill="#222833"/>
+                      <rect x="230" y="279" width="68" height="5" rx="2.5" fill="#4b5260"/>
+                    </g>
+
+                    <circle cx="71" cy="300" r="5" fill="#ffbd32"/>
+                    <circle cx="458" cy="298" r="5" fill="#ffbd32"/>
+                  </svg>
+                </div>
+
+                <div class="mock-stats">
+                  <div class="mock-stat">
+                    <span class="mock-stat-icon">✓</span>
+                    <span><strong>Visual profissional</strong><small>Feito para gerar confiança</small></span>
+                  </div>
+                  <div class="mock-stat">
+                    <span class="mock-stat-icon">▣</span>
+                    <span><strong>Responsiva</strong><small>Boa experiência no celular</small></span>
+                  </div>
+                  <div class="mock-stat">
+                    <span class="mock-stat-icon">↗</span>
+                    <span><strong>Contato direto</strong><small>Botões para o WhatsApp</small></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -693,8 +830,8 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <span class="footer-logo"><img src="logo.jpg?v=20260713-2" alt="Logo Ativa Digital ON"></span>
-            <div><strong>Ativa Digital ON</strong><p>Páginas profissionais para negócios e prestadores de serviços.</p></div>
+            <span class="brand-logo"><img src="logo.jpg" alt="Logo Ativa Digital ON"></span>
+            <div><strong>Ativa Digital ON</strong><p>Páginas profissionais para empresas e prestadores de serviço.</p></div>
           </div>
         </div>
         <div>
