@@ -1,0 +1,56 @@
+name: Corrigir logo e remover planos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/corrigir-site.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  corrigir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Corrigir index.html
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          caminho = Path('index.html')
+          html = caminho.read_text(encoding='utf-8')
+
+          logo = 'https://raw.githubusercontent.com/RicardoRibeiro-Prof/apresentacao/main/logo.jpg?v=20260713'
+          html = html.replace('src="logo.jpg"', f'src="{logo}"')
+
+          html = re.sub(
+              r'\n\s*<section class="section section-cream" id="planos">.*?</section>\n(?=\s*<section class="section section-dark" id="contato">)',
+              '\n',
+              html,
+              count=1,
+              flags=re.DOTALL,
+          )
+
+          html = re.sub(r'\n\s*<a href="#planos">Planos</a>', '', html)
+
+          if '<link rel="icon"' not in html:
+              html = html.replace(
+                  '<meta name="theme-color" content="#0b0b0d" />',
+                  '<meta name="theme-color" content="#0b0b0d" />\n  <link rel="icon" type="image/jpeg" href="' + logo + '" />'
+              )
+
+          caminho.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Publicar correção
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Exibe logo e remove seção de planos" || exit 0
+          git push
